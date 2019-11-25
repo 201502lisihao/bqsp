@@ -30,7 +30,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'user', 'just', 'deljustuser', 'yisai', 'news', 'deluser', 'delnews', 'checknews', 'looknews'],
+                        'actions' => ['logout', 'index', 'user', 'yisai', 'deluser',],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -88,15 +88,6 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    //Just清单用户管理
-    public function actionJust()
-    {
-        $model = new JustUserModel();
-        $result = $model->find()->asArray()->all();
-        //var_dump($result);exit;
-        return $this->render('just',['data' => array_reverse($result)]);
-    }
-
     //伊赛Tool用户管理
     public function actionYisai()
     {
@@ -108,33 +99,12 @@ class SiteController extends Controller
 
     //删除用户
     public function actionDeluser($id){
-        $model = new WxUserModel();
+        $model = new YisaiWxUserModel();
         $query = $model->find()->where(['id' => $id])->one();
         if (!empty($query)) {
             $query->delete();
         }
-        return $this->actionUser();
-    }
-
-    //删除用户
-    public function actionDeljustuser($id){
-        $model = new JustUserModel();
-        $query = $model->find()->where(['id' => $id])->one();
-        if (!empty($query)) {
-            $query->delete();
-        }
-        return $this->actionJust();
-    }
-
-    //新闻管理
-
-    public function actionDelnews($id){
-        $model = new PostsModel();
-        $query = $model->find()->where(['id' => $id])->one();
-        if (!empty($query)) {
-            $query->delete();
-        }
-        return $this->actionNews();
+        return $this->actionYisai();
     }
 
     //删除新闻 增删改---删除

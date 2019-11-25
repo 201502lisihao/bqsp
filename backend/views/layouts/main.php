@@ -28,7 +28,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'lisihao管理后台',
+        'brandLabel' => '石家庄伊赛牛肉+管理后台',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -42,9 +42,7 @@ AppAsset::register($this);
     } else {
         $menuItems = [
             ['label' => '首页', 'url' => ['/site/index']],
-            ['label' => 'Just清单', 'url' => ['/site/just']],
-            ['label' => '伊赛Tool', 'url' => ['/site/yisai']],
-            //['label' => '文章管理', 'url' => ['/site/news']]
+            ['label' => '用户管理', 'url' => ['/site/yisai']],
         ];
         $menuItems[] = [
             'label' => '退出登录 (' . Yii::$app->user->identity->username . ')',
