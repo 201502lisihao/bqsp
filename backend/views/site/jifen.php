@@ -28,7 +28,7 @@ $this->title = '用户管理';
                     <td><?= $value['order_no'] ?></td>
                     <td><?= $value['user_id'] ?></td>
                     <td><?= $value['nickname'] ?></td>
-                    <td><?= $value['headimg'] ?></td>
+                    <td><img style="width:70px;height:70px;" src="<?= $value['headimg'] ?>" alt="<?=$value['nickname']?>"></td>
                     <td><?= $value['award_point'] ?></td>
                     <td><?= $value['apply_from'] ?></td>
                     <td><?= date('Y-m-d H:i:s',$value['create_at']) ?></td>
