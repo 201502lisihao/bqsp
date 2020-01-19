@@ -30,7 +30,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'userlist', 'jifenlist', 'deluser',],
+                        'actions' => ['logout', 'index', 'userlist', 'jifenlist', 'getorderlistbyuserid', 'deluser',],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
