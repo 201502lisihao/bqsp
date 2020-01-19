@@ -91,9 +91,8 @@ class SiteController extends Controller
     //伊赛Tool用户管理
     public function actionUserlist()
     {
-        $model = new YisaiWxUserModel();
-        $result = $model->find()->asArray()->all();
-        return $this->render('user', ['data' => array_reverse($result)]);
+        $result = SiteService::getUserList();
+        return $this->render('user', ['data' => $result]);
     }
 
     //删除用户

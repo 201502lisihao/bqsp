@@ -9,11 +9,11 @@ $this->title = '用户管理';
         <table class="table table-striped table-hover">
             <thead>
             <tr>
-                <th>id</th>
+                <th>积分编号</th>
 <!--                <th>编号</th>-->
                 <th>用户id</th>
-                <th>用户头像</th>
                 <th>用户昵称</th>
+                <th>用户头像</th>
                 <th>分值</th>
                 <th>积分来源</th>
                 <th>创建时间</th>

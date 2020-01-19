@@ -20,6 +20,22 @@ class SiteService extends BaseService {
                 $orderList[$key]['headimg'] = $userInfo['headimg'];
             }
         }
-        return $orderList;
+        return array_reverse($orderList);
+    }
+
+    /**
+     * 获取用户列表
+     */
+    public static function getUserList(){
+        $userList = YisaiWxUserModel::find()->asArray()->all();
+        if (!empty($userList)){
+            foreach ($userList as $key => $user){
+                //算出每个用户的总积分
+                $sumPoints = YisaiOrdersModel::find()->select('SUM(award_point) as points')->where(['user_id' => $user['id']])->asArray()->all();
+                Yii::error('lisihao11111111111111$sumPoints='.json_encode($sumPoints));
+                $userList[$key]['points'] = $sumPoints ?? 0;
+            }
+        }
+        return array_reverse($userList);
     }
 }

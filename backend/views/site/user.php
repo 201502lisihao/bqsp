@@ -12,6 +12,7 @@ $this->title = '用户管理';
                     <th>编号</th>
                     <th>微信头像</th>
                     <th>微信昵称</th>
+                    <th>积分数量</th>
                     <th>性别</th>
                     <th>城市</th>
                     <th>注册时间</th>
@@ -24,6 +25,7 @@ $this->title = '用户管理';
                         <td><?= $value['id'] ?></td>
                         <td><img style="width:70px;height:70px;" src="<?= $value['headimg'] ?>" alt="<?=$value['nickname']?>"></td>
                         <td><?= base64_decode($value['nickname']) ?></td>
+                        <td><?= $value['points'] ?></td>
                         <td><?php
                             if($value['gender'] == 1){
                                 echo '男生';
