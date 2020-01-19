@@ -96,9 +96,9 @@ class SiteController extends Controller
     }
 
     //删除用户
-    public function actionDeluser($id){
+    public function actionDeluser($userId){
         $model = new YisaiWxUserModel();
-        $query = $model->find()->where(['id' => $id])->one();
+        $query = $model->find()->where(['id' => $userId])->one();
         if (!empty($query)) {
             $query->delete();
         }
@@ -109,6 +109,12 @@ class SiteController extends Controller
     public function actionJifenlist(){
         $result = SiteService::getOrderList();
         return $this->render('jifen', array('data' => $result));
+    }
+
+    //获取用户积分
+    public function actionGetorderlistbyuserid($userId){
+        $result = SiteService::getOrderListByUserId($userId);
+        return $this->render('usersorders', array('data' => $result));
     }
 
     //删除新闻 增删改---删除

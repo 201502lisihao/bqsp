@@ -38,4 +38,13 @@ class SiteService extends BaseService {
         }
         return array_reverse($userList);
     }
+
+    /**
+     * 获取用户的所有积分订单
+     */
+    public static function getOrderListByUserId($userId){
+        $orderList = YisaiOrdersModel::find()->where(['user_id' => $userId])->asArray()->all();
+        $orderList = is_array($orderList) ? $orderList : array();
+        return array_reverse($orderList);
+    }
 }
