@@ -10,7 +10,6 @@ $this->title = '用户管理';
             <thead>
             <tr>
                 <th>积分编号</th>
-                <!--                <th>编号</th>-->
                 <th>用户id</th>
                 <th>分值</th>
                 <th>积分来源</th>
@@ -23,7 +22,6 @@ $this->title = '用户管理';
             <?php foreach($data as $key => $value): ?>
                 <tr>
                     <td><?= $value['id'] ?></td>
-                    <!--                    <td>--><?//= $value['order_no'] ?><!--</td>-->
                     <td><?= $value['user_id'] ?></td>
                     <td><?= $value['award_point'] ?></td>
                     <td><?= $value['apply_from'] ?></td>

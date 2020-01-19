@@ -30,7 +30,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'userlist', 'jifenlist', 'getorderlistbyuserid', 'deluser',],
+                        'actions' => ['logout', 'index', 'userlist', 'jifenlist', 'getorderlistbyuserid', 'deluser', 'delorder'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -102,7 +102,7 @@ class SiteController extends Controller
         if (!empty($query)) {
             $query->delete();
         }
-        return $this->actionYisai();
+        return $this->actionUserlist();
     }
 
     //积分管理
@@ -115,6 +115,15 @@ class SiteController extends Controller
     public function actionGetorderlistbyuserid($userId){
         $result = SiteService::getOrderListByUserId($userId);
         return $this->render('usersorders', array('data' => $result));
+    }
+
+    public function actionDelorder($id){
+        $model = new YisaiOrdersModel();
+        $query = $model->find()->where(['id' => $id])->one();
+        if (!empty($query)) {
+            $query->delete();
+        }
+        return $this->actionJifenlist();
     }
 
     //删除新闻 增删改---删除
