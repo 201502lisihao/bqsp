@@ -12,7 +12,7 @@ $this->title = '用户管理';
                     <th>编号</th>
                     <th>微信头像</th>
                     <th>微信昵称</th>
-                    <th>积分数量</th>
+                    <th>可用积分</th>
                     <th>性别</th>
                     <th>城市</th>
                     <th>注册时间</th>

@@ -32,7 +32,7 @@ class SiteService extends BaseService {
         if (!empty($userList)){
             foreach ($userList as $key => $user){
                 //算出每个用户的总积分
-                $sumPoints = YisaiOrdersModel::find()->select('SUM(award_point) as points')->where(['user_id' => $user['id']])->asArray()->all();
+                $sumPoints = YisaiOrdersModel::find()->select('SUM(award_point) as points')->where(['user_id' => $user['id'], 'order_status'=>'待核销'])->asArray()->all();
                 $userList[$key]['points'] = $sumPoints[0]['points'] ?? 0;
             }
         }
