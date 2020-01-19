@@ -5,6 +5,7 @@ use backend\models\LoginForm;
 use common\models\PostsModel;
 use common\models\YisaiOrdersModel;
 use common\models\YisaiWxUserModel;
+use backend\service\SiteService;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -107,8 +108,8 @@ class SiteController extends Controller
 
     //积分管理
     public function actionJifenlist(){
-        $result = YisaiOrdersModel::find()->asArray()->all();
-        return $this->render('jifen', array('data' => array_reverse($result)));
+        $result = SiteService::getOrderList();
+        return $this->render('jifen', array('data' => $result));
     }
 
     //删除新闻 增删改---删除
