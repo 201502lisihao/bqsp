@@ -5,6 +5,7 @@ namespace backend\service;
 use backend\service\base\BaseService;
 use common\models\YisaiOrdersModel;
 use common\models\YisaiWxUserModel;
+use Yii;
 
 class SiteService extends BaseService {
     /**
