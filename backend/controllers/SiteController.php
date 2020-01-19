@@ -3,8 +3,7 @@ namespace backend\controllers;
 
 use backend\models\LoginForm;
 use common\models\PostsModel;
-use common\models\WxUserModel;
-use common\models\JustUserModel;
+use common\models\YisaiOrdersModel;
 use common\models\YisaiWxUserModel;
 use Yii;
 use yii\filters\AccessControl;
@@ -30,7 +29,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'user', 'yisai', 'deluser',],
+                        'actions' => ['logout', 'index', 'userlist', 'jifenlist', 'deluser',],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -89,11 +88,10 @@ class SiteController extends Controller
     }
 
     //伊赛Tool用户管理
-    public function actionYisai()
+    public function actionUserlist()
     {
         $model = new YisaiWxUserModel();
         $result = $model->find()->asArray()->all();
-        //var_dump($result);exit;
         return $this->render('user', ['data' => array_reverse($result)]);
     }
 
@@ -105,6 +103,12 @@ class SiteController extends Controller
             $query->delete();
         }
         return $this->actionYisai();
+    }
+
+    //积分管理
+    public function actionJifenlist(){
+        $result = YisaiOrdersModel::find()->asArray()->all();
+        return $this->render('jifen', array('data' => array_reverse($result)));
     }
 
     //删除新闻 增删改---删除
