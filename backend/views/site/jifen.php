@@ -37,7 +37,11 @@ $this->title = '用户管理';
                     <?php } else {?>
                         <td style="color: red"><?= $value['order_status'] ?></td>
                     <?php } ?>
-                    <td><a href="<?=Url::to(['site/verifyjifen','id' => $value['id']])?>">点击核销</a></td>
+                    <?php if($value['order_status'] == '已核销') {?>
+                        <td></td>
+                    <?php } else {?>
+                        <td><a href="<?=Url::to(['site/verifyjifen','id' => $value['id']])?>">点击核销</a></td>
+                    <?php } ?>
                 </tr>
             <?php endforeach;?>
             </tbody>

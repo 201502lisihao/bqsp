@@ -122,7 +122,7 @@ class SiteController extends Controller
         $model = new YisaiOrdersModel();
         $query = $model->find()->where(['id' => $id])->one();
         if (!empty($query)) {
-            $query->is_valid = 1;
+            $query->order_status = '已核销';
             $query->save();
         }
         return $this->goBack();
