@@ -37,7 +37,7 @@ $this->title = '用户管理';
                     <?php } else {?>
                         <td style="color: red"><?= $value['order_status'] ?></td>
                     <?php } ?>
-                    <td><a href="<?=Url::to(['site/deluser','id' => $value['id']])?>">删除</a></td>
+                    <td><a href="<?=Url::to(['site/verifyjifen','id' => $value['id']])?>">点击核销</a></td>
                 </tr>
             <?php endforeach;?>
             </tbody>

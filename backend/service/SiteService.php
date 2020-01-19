@@ -42,7 +42,7 @@ class SiteService extends BaseService {
     /**
      * 获取用户的所有积分订单
      */
-    public static function getOrderListByUserId($userId){
+    public static function getJifenListByUserId($userId){
         $orderList = YisaiOrdersModel::find()->where(['user_id' => $userId])->asArray()->all();
         $orderList = is_array($orderList) ? $orderList : array();
         return array_reverse($orderList);

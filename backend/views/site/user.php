@@ -25,7 +25,7 @@ $this->title = '用户管理';
                         <td><?= $value['id'] ?></td>
                         <td><img style="width:70px;height:70px;" src="<?= $value['headimg'] ?>" alt="<?=$value['nickname']?>"></td>
                         <td><?= base64_decode($value['nickname']) ?></td>
-                        <td><a href="<?=Url::to(['site/getorderlistbyuserid', 'id' => $value['id']])?>"><?= $value['points'] ?></a></td>
+                        <td><a href="<?=Url::to(['site/getjifenlistbyuserid', 'id' => $value['id']])?>"><?= $value['points'] ?></a></td>
                         <td><?php
                             if($value['gender'] == 1){
                                 echo '男生';
