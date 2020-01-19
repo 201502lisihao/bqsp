@@ -96,9 +96,9 @@ class SiteController extends Controller
     }
 
     //删除用户
-    public function actionDeluser($userId){
+    public function actionDeluser($id){
         $model = new YisaiWxUserModel();
-        $query = $model->find()->where(['id' => $userId])->one();
+        $query = $model->find()->where(['id' => $id])->one();
         if (!empty($query)) {
             $query->delete();
         }
@@ -112,8 +112,8 @@ class SiteController extends Controller
     }
 
     //获取用户积分
-    public function actionGetorderlistbyuserid($userId){
-        $result = SiteService::getOrderListByUserId($userId);
+    public function actionGetorderlistbyuserid($id){
+        $result = SiteService::getOrderListByUserId($id);
         return $this->render('usersorders', array('data' => $result));
     }
 
