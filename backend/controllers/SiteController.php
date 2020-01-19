@@ -123,7 +123,7 @@ class SiteController extends Controller
         $query = $model->find()->where(['id' => $id])->one();
         if (!empty($query)) {
             $query->order_status = '已核销';
-            $query->save();
+            $query->save(false);
         }
         return $this->goBack();
     }
