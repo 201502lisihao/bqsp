@@ -10,7 +10,7 @@ $this->title = '用户管理';
             <thead>
             <tr>
                 <th>id</th>
-                <th>编号</th>
+<!--                <th>编号</th>-->
                 <th>用户id</th>
                 <th>用户头像</th>
                 <th>用户昵称</th>
@@ -25,10 +25,10 @@ $this->title = '用户管理';
             <?php foreach($data as $key => $value): ?>
                 <tr>
                     <td><?= $value['id'] ?></td>
-                    <td><?= $value['order_no'] ?></td>
+<!--                    <td>--><?//= $value['order_no'] ?><!--</td>-->
                     <td><?= $value['user_id'] ?></td>
                     <td><?= $value['nickname'] ?></td>
-                    <td><img style="width:70px;height:70px;" src="<?= $value['headimg'] ?>" alt="<?=$value['nickname']?>"></td>
+                    <td><img style="width:40px;height:40px;" src="<?= $value['headimg'] ?>" alt="<?=$value['nickname']?>"></td>
                     <td><?= $value['award_point'] ?></td>
                     <td><?= $value['apply_from'] ?></td>
                     <td><?= date('Y-m-d H:i:s',$value['create_at']) ?></td>
