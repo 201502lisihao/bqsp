@@ -6,6 +6,8 @@ use common\models\PostsModel;
 use common\models\YisaiOrdersModel;
 use common\models\YisaiWxUserModel;
 use backend\service\SiteService;
+//use http\Url;
+use yii\helpers\Url;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -91,6 +93,7 @@ class SiteController extends Controller
     //伊赛Tool用户管理
     public function actionUserlist()
     {
+        Yii::$app->User->setReturnUrl(Url::current());
         $result = SiteService::getUserList();
         return $this->render('user', ['data' => $result]);
     }
@@ -103,7 +106,7 @@ class SiteController extends Controller
             $query->delete();
         }
 //        return $this->actionUserlist();
-        return $this->goBack(Yii::$app->request->referrer);
+        return $this->goBack();
     }
 
     //积分管理
@@ -114,6 +117,7 @@ class SiteController extends Controller
 
     //获取用户积分
     public function actionGetjifenlistbyuserid($id){
+        Yii::$app->User->setReturnUrl(Url::current());
         $result = SiteService::getjifenListByUserId($id);
         return $this->render('usersjifen', array('data' => $result));
     }
@@ -126,7 +130,7 @@ class SiteController extends Controller
             $query->order_status = '已核销';
             $query->save(false);
         }
-        return $this->goBack(Yii::$app->request->referrer);
+        return $this->goBack();
     }
 
     //删除新闻 增删改---删除
