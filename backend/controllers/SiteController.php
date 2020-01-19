@@ -102,8 +102,7 @@ class SiteController extends Controller
         if (!empty($query)) {
             $query->delete();
         }
-//        return $this->actionUserlist();
-        return $this->goBack(Yii::$app->request->getReferrer());
+        return $this->redirect(Yii::$app->request->getReferrer());
     }
 
     //积分管理
@@ -126,7 +125,7 @@ class SiteController extends Controller
             $query->order_status = '已核销';
             $query->save(false);
         }
-        return $this->goBack(Yii::$app->request->getReferrer());
+        return $this->redirect(Yii::$app->request->getReferrer());
     }
 
     //删除新闻 增删改---删除
