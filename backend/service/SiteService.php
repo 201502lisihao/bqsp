@@ -33,8 +33,7 @@ class SiteService extends BaseService {
             foreach ($userList as $key => $user){
                 //算出每个用户的总积分
                 $sumPoints = YisaiOrdersModel::find()->select('SUM(award_point) as points')->where(['user_id' => $user['id']])->asArray()->all();
-                Yii::error('lisihao11111111111111$sumPoints='.json_encode($sumPoints));
-                $userList[$key]['points'] = $sumPoints ?? 0;
+                $userList[$key]['points'] = $sumPoints['points'] ?? 0;
             }
         }
         return array_reverse($userList);
